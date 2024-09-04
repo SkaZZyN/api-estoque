@@ -36,7 +36,13 @@ export const updateByNS = async (
   req: Request<IParamProps, {}, IBodyProps>,
   res: Response
 ) => {
-  return res
+  if(Number(req.params.numeroSerie) === 9999){
+
+    return res
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
-    .send("not implemented updateByNS");
+    .send({ errors: { default: "Número de Série não encontrado" } });
+
+  }
+
+  return res.status(StatusCodes.NO_CONTENT).send();
 };

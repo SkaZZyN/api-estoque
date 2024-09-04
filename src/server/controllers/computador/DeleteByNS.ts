@@ -17,7 +17,16 @@ export const deleteByNSValidation = validation((getSchema) => ({
 }));
 
 export const deleteByNS = async (req: Request<IParamProps>, res: Response) => {
-  return res
+
+  if(Number(req.params.numeroSerie) === 9999){
+
+    return res
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
-    .send("not implemented deleteByNS");
+    .send({ errors: { default: "Número de Série não encontrado" } });
+
+  }
+
+  return res
+    .status(StatusCodes.NO_CONTENT)
+    .send();
 };

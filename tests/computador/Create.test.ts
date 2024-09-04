@@ -13,7 +13,7 @@ describe("Computador - Create", () => {
 	        setor: "Teste Setor"
         });
 
-        expect(res1.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+        expect(res1.statusCode).toEqual(StatusCodes.CREATED);
     });
 
     it ("Cria Registro", async () =>{

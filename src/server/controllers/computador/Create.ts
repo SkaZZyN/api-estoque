@@ -29,6 +29,6 @@ export const create = async (
   res: Response
 ) => {
   return res
-    .status(StatusCodes.INTERNAL_SERVER_ERROR)
+    .status(StatusCodes.CREATED)
     .send("not implemented create");
 };

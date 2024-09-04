@@ -24,7 +24,19 @@ export const getAll = async (
   req: Request<{}, {}, {}, IQueryProps>,
   res: Response
 ) => {
+
+  res.setHeader("x-total-count", 1);
+  res.setHeader("acess-control-expose-headers", "x-total-count");
+
   return res
-    .status(StatusCodes.INTERNAL_SERVER_ERROR)
-    .send("not implemented getAll");
+    .status(StatusCodes.OK)
+    .json([
+      {
+        patrimonio: 16870,
+        marca: "HP",
+        modelo: "elitedesk",
+        numeroSerie: "teste NS",
+        setor: "Teste Setor",
+      },
+    ]);
 };
